@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Создать документ{% endblock %}
+{% block content %}
+    <div class="container mt-4">
+        <form>
+            <div class="category">
+                <h3>Дата и место составления</h3>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Дата составления</label>
+                    <input class="form-control" id="date" type="date">
+
+                    <label for="location" class="form-label">Место составления</label>
+                    <input class="form-control" id="location" type="text">
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Текущий владелец транспортного средства</h3>
+                <div class="mb-3">
+                    <label for="ownerName" class="form-label">ФИО (как в паспорте)</label>
+                    <input class="form-control" id="ownerName" type="text">
+
+                    <label for="ownerPassport" class="form-label">Серия и номер паспорта</label>
+                    <input class="form-control" id="ownerPassport" type="text">
+
+                    <label for="issueDate" class="form-label">Дата выдачи</label>
+                    <input class="form-control" id="issueDate" type="date">
+
+                    <label for="departmentCode" class="form-label">Код подразделения</label>
+                    <input class="form-control" id="departmentCode" type="text">
+
+                    <label for="issuedBy" class="form-label">Кем выдан</label>
+                    <input class="form-control" id="issuedBy" type="text">
+
+                    <label for="birthDate" class="form-label">Дата рождения</label>
+                    <input class="form-control" id="birthDate" type="date">
+
+                    <label for="birthPlace" class="form-label">Место рождения</label>
+                    <input class="form-control" id="birthPlace" type="text">
+
+                    <label for="registrationAddress" class="form-label">Адрес регистрации</label>
+                    <input class="form-control" id="registrationAddress" type="text">
+
+                    <label for="ownerPhone" class="form-label">Номер телефона</label>
+                    <input class="form-control" id="ownerPhone" type="tel">
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Покупатель транспортного средства</h3>
+                <div class="mb-3">
+                    <label for="buyerName" class="form-label">ФИО (как в паспорте)</label>
+                    <input class="form-control" id="buyerName" type="text">
+
+                    <label for="buyerPhone" class="form-label">Номер телефона</label>
+                    <input class="form-control" id="buyerPhone" type="tel">
+
+                    <label for="buyerPassport" class="form-label">Серия и номер паспорта</label>
+                    <input class="form-control" id="buyerPassport" type="text">
+
+                    <label for="buyerIssueDate" class="form-label">Дата выдачи</label>
+                    <input class="form-control" id="buyerIssueDate" type="date">
+
+                    <label for="buyerDepartmentCode" class="form-label">Код подразделения</label>
+                    <input class="form-control" id="buyerDepartmentCode" type="text">
+
+                    <label for="buyerIssuedBy" class="form-label">Кем выдан</label>
+                    <input class="form-control" id="buyerIssuedBy" type="text">
+
+                    <label for="buyerBirthDate" class="form-label">Дата рождения</label>
+                    <input class="form-control" id="buyerBirthDate" type="date">
+
+                    <label for="buyerBirthPlace" class="form-label">Место рождения</label>
+                    <input class="form-control" id="buyerBirthPlace" type="text">
+
+                    <label for="buyerRegistrationAddress" class="form-label">Адрес регистрации</label>
+                    <input class="form-control" id="buyerRegistrationAddress" type="text">
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Транспортное средство</h3>
+                <div class="mb-3">
+                    <label for="vehicleBrand" class="form-label">Марка и модель ТС</label>
+                    <input class="form-control" id="vehicleBrand" type="text">
+
+                    <label for="vinNumber" class="form-label">VIN номер</label>
+                    <input class="form-control" id="vinNumber" type="text">
+
+                    <label for="vehicleType" class="form-label">Тип ТС</label>
+                    <select class="form-select" id="vehicleType">
+                        <option value="легковой">Легковой</option>
+                        <option value="грузовой">Грузовой</option>
+                        <option value="автобус">Автобус</option>
+                        <option value="мотоцикл">Мотоцикл</option>
+                    </select>
+
+                    <label for="releaseYear" class="form-label">Год выпуска</label>
+                    <input class="form-control" id="releaseYear" type="number">
+
+                    <label for="mileage" class="form-label">Пробег, км</label>
+                    <input class="form-control" id="mileage" type="number">
+
+                    <label for="enginePower" class="form-label">Мощность двигателя, л.с.</label>
+                    <input class="form-control" id="enginePower" type="number">
+
+                    <label for="engineVolume" class="form-label">Рабочий объем, куб.см.</label>
+                    <input class="form-control" id="engineVolume" type="number">
+
+                    <label for="color" class="form-label">Цвет</label>
+                    <input class="form-control" id="color" type="text">
+
+                    <label for="engineModel" class="form-label">Модель двигателя</label>
+                    <input class="form-control" id="engineModel" type="text">
+
+                    <label for="engineNumber" class="form-label">Номер двигателя</label>
+                    <input class="form-control" id="engineNumber" type="text">
+
+                    <label for="chassisNumber" class="form-label">Номер шасси, рамы</label>
+                    <input class="form-control" id="chassisNumber" type="text">
+
+                    <label for="bodyNumber" class="form-label">Номер кузова</label>
+                    <input class="form-control" id="bodyNumber" type="text">
+
+                    <label for="ptsNumber" class="form-label">ПТС, серия/номер</label>
+                    <input class="form-control" id="ptsNumber" type="text">
+
+                    <label for="ptsIssueDate" class="form-label">ПТС, дата выдачи</label>
+                    <input class="form-control" id="ptsIssueDate" type="date">
+
+                    <label for="ptsIssuedBy" class="form-label">ПТС, кем выдан</label>
+                    <input class="form-control" id="ptsIssuedBy" type="text">
+
+                    <label for="registrationNumber" class="form-label">Гос. номер</label>
+                    <input class="form-control" id="registrationNumber" type="text">
+
+                    <label for="stsSeries" class="form-label">СТС, серия</label>
+                    <input class="form-control" id="stsSeries" type="text">
+
+                    <label for="stsNumber" class="form-label">СТС, номер</label>
+                    <input class="form-control" id="stsNumber" type="text">
+
+                    <label for="stsIssueDate" class="form-label">СТС, дата выдачи</label>
+                    <input class="form-control" id="stsIssueDate" type="date">
+
+                    <label for="stsIssuedBy" class="form-label">СТС, кем выдан</label>
+                    <input class="form-control" id="stsIssuedBy" type="text">
+
+                    <label for="vehiclePrice" class="form-label">Стоимость ТС</label>
+                    <input class="form-control" id="vehiclePrice" type="number">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

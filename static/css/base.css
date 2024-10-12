@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #A9A9A9;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+main {
+    flex-grow: 1;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+}
+
+footer {
+
+}

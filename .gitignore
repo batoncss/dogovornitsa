@@ -1,0 +1,8 @@
+__pycache__
+dogovornitsa/__pycache__/
+dogovornitsa/apps/pages/__pycache__/
+.git
+.idea
+.venv
+db.json
+config.ini
