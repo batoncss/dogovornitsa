@@ -1,7 +1,11 @@
 .category {
-    border: 1px solid #ced4da; /* Цвет рамки */
-    border-radius: 5px; /* Скругление углов */
-    padding: 15px; /* Отступы внутри рамки */
-    margin-bottom: 20px; /* Отступ между рамками */
-    background-color: #f9f9f9; /* Цвет фона */
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+button{
+    margin-top: 15px;
 }
