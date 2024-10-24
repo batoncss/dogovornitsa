@@ -54,7 +54,7 @@ export async function clickingButtonPDF() {
         };
         console.log(data);
         try {
-            let response = await fetch('/dogovornitsaAPI/generatingPDF/', {
+            let response = await fetch('/PDF/generatingPDF/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

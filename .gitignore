@@ -1,8 +1,9 @@
-__pycache__
-dogovornitsa/__pycache__/
-dogovornitsa/apps/pages/__pycache__/
-.git
-.idea
 .venv
+.idea
+node_modules
+backend/.idea
+frontend/.nuxt
+.git
+.editorconfig
 db.json
 config.ini
