@@ -7,7 +7,7 @@ def home(request):
 def faces(request):
     return render(request, 'pages/faces.html')
 
-def makingOrder(request):
+def making_order(request):
     return render(request, 'pages/makingOrder.html')
 
 def orders(request):
