@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "Dogovornitsa.apps.pages",
+    "Dogovornitsa.apps.contracts",
 ]
 
 MIDDLEWARE = [
