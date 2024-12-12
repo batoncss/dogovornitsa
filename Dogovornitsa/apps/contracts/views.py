@@ -13,4 +13,4 @@ def participants(request):
     else:
         form = ParticipantForm()
     all_participants = Participant.objects.all()
-    return render(request, "participants.html", {"participants": all_participants, 'form': form})
+    return render(request, "pages/contracts/participants.html", {"participants": all_participants, 'form': form})

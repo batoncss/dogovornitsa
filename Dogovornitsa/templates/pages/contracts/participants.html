@@ -1,16 +1,12 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block title %}Стороны договора{% endblock %}
 {% block content %}
     <h1>Список сторон договора</h1>
     <h2>Добавить новую сторону</h2>
-    <form method="post">
+    <form class="" action="" method="post" novalidate>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Добавить</button>
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Добавить</button>
     </form>
-
-    {% for participant in participants %}
-        Имя: {{ participant.name }}
-        ИНН: {{ participant.inn }}
-    {% endfor %}
 {% endblock %}
