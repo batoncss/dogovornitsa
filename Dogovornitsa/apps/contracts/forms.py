@@ -7,5 +7,9 @@ class ParticipantForm(ModelForm):
         model = Participant
         fields = [
             'name',
+            'legal_address',
+            'actual_address',
             'inn',
+            'kpp',
+            'ogrn',
         ]
