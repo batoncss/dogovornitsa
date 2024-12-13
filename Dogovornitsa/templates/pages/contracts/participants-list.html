@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Стороны договора{% endblock %}
+{% block content %}
+    <h2>Список участников</h2>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Имя</th>
+                <th scope="col">Юр.адрес</th>
+                <th scope="col">Факт.адрес</th>
+                <th scope="col">ИНН</th>
+                <th scope="col">КПП</th>
+                <th scope="col">ОГРН</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if participants %}
+            {% for participant in participants %}
+                <tr>
+                    <td>{{ participant.name }}</td>
+                    <td>{{ participant.legal_address }}</td>
+                    <td>{{ participant.actual_address }}</td>
+                    <td>{{ participant.inn }}</td>
+                    <td>{{ participant.kpp }}</td>
+                    <td>{{ participant.ogrn }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'participants_delete' participant.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                <img src="{% static 'pict/delete.png' %}" alt="Удалить">
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="6">Нет участников для отображения</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
