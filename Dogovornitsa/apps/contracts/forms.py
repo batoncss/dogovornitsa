@@ -8,6 +8,11 @@ class ParticipantForm(ModelForm):
         widgets = {
             'name': TextInput(attrs={'class': 'form-control'}),
         }
+        error_messages = {
+            'name': {
+                'required': "Имя участника договора обязательно"
+            }
+        }
         fields = [
             'name',
             'legal_address',
