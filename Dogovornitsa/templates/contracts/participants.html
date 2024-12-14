@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Стороны договора{% endblock %}
+{% block content %}
+    <h2>Список участников</h2>
+    
+    {% include 'contracts/participants.form.html' %}
+    
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Имя</th>
+                <th scope="col">Юр.адрес</th>
+                <th scope="col">Факт.адрес</th>
+                <th scope="col">ИНН</th>
+                <th scope="col">КПП</th>
+                <th scope="col">ОГРН</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participant in participants %}
+            {% include 'contracts/participant-row.html' %}
+        {% empty %}
+            <tr>
+                <td colspan="6">Нет участников для отображения</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
