@@ -21,7 +21,11 @@ class ParticipantForm(ModelForm):
             'kpp',
             'ogrn',
         ]
-    name = forms.CharField(error_messages={'required': 'Пожалуйста введите ваше имя'}, widget=TextInput(attrs={'class': 'form-control'}))
+    name = forms.CharField(
+        error_messages={'required': 'Пожалуйста введите ваше имя'},
+        widget=TextInput(attrs={'class': 'form-control'}),
+        label="Имя участника договора"
+    )
 
     # def clean(self):
     #     cleaned_data = super().clean()
