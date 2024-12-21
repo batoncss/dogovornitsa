@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 
 from Dogovornitsa.apps.contracts.forms import ParticipantForm
@@ -16,7 +17,15 @@ def participants(request):
     else:
         form = ParticipantForm()
     all_participants = Participant.objects.all()
-    return render(request, "contracts/participants.html", {"participants": all_participants, 'form': form, "form_is_invalid": form_is_invalid })
+    paginator = Paginator(all_participants, 3)
+
+    page = request.GET.get('page')
+    page_obj = paginator.get_page(page)
+    return render(request, "contracts/participants.html", {
+        "page_obj": page_obj,
+        'form': form,
+        "form_is_invalid": form_is_invalid }
+    )
 
 
 def participants_delete(request, participant_id):

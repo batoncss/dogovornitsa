@@ -1,5 +1,4 @@
-from django import forms
-from django.forms import TextInput, ModelForm, NumberInput
+from django.forms import TextInput, ModelForm, ValidationError, CharField
 from .models import Participant
 
 class ParticipantForm(ModelForm):
@@ -21,7 +20,7 @@ class ParticipantForm(ModelForm):
             'kpp',
             'ogrn',
         ]
-    name = forms.CharField(
+    name = CharField(
         error_messages={'required': 'Пожалуйста введите ваше имя'},
         widget=TextInput(attrs={'class': 'form-control'}),
         label="Имя участника договора"
@@ -39,35 +38,35 @@ class ParticipantForm(ModelForm):
     def clean_name(self):
         name = self.cleaned_data.get('name')
         if Participant.objects.filter(name=name).exists():
-            raise forms.ValidationError('Участник с таким именем уже зарегистрирован')
+            raise ValidationError('Участник с таким именем уже зарегистрирован')
         return name
 
     def clean_inn(self):
         inn = self.cleaned_data.get('inn')
         if Participant.objects.filter(name=inn).exists():
-            raise forms.ValidationError('Участник с таким ИНН уже зарегистрирован')
+            raise ValidationError('Участник с таким ИНН уже зарегистрирован')
         if len(inn) not in (10, 12):
-            raise forms.ValidationError('ИНН должен состоять из 10 или 12 цифр')
+            raise ValidationError('ИНН должен состоять из 10 или 12 цифр')
         if not inn.isdigit():
-            raise forms.ValidationError('ИНН должен содержать только цифры')
+            raise ValidationError('ИНН должен содержать только цифры')
         return inn
 
     def clean_kpp(self):
         kpp = self.cleaned_data.get('kpp')
         if Participant.objects.filter(name=kpp).exists():
-            raise forms.ValidationError('Участник с таким КПП уже зарегистрирован')
+            raise ValidationError('Участник с таким КПП уже зарегистрирован')
         if len(kpp) != 9:
-            raise forms.ValidationError('КПП должен состоять из 9 цифр')
+            raise ValidationError('КПП должен состоять из 9 цифр')
         if not kpp.isdigit():
-            raise forms.ValidationError('КПП должен содержать только цифры')
+            raise ValidationError('КПП должен содержать только цифры')
         return kpp
 
     def clean_ogrn(self):
         ogrn = self.cleaned_data.get('ogrn')
         if Participant.objects.filter(name=ogrn).exists():
-            raise forms.ValidationError('Участник с таким ОГРН уже зарегистрирован')
+            raise ValidationError('Участник с таким ОГРН уже зарегистрирован')
         if len(ogrn) != 15:
-            raise forms.ValidationError('КПП должен состоять из 15 цифр')
+            raise ValidationError('КПП должен состоять из 15 цифр')
         if not ogrn.isdigit():
-            raise forms.ValidationError('КПП должен содержать только цифры')
+            raise ValidationError('КПП должен содержать только цифры')
         return ogrn
