@@ -6,7 +6,7 @@ class ParticipantForm(ModelForm):
     class Meta:
         model = Participant
         widgets = {
-            'name': TextInput(attrs={'class': 'form-control'}),
+            # 'name': TextInput(attrs={'class': 'form-control'}),
             'legal_address': TextInput(attrs={'class': 'form-control'}),
             'actual_address': TextInput(attrs={'class': 'form-control'}),
             'inn': TextInput(attrs={'class': 'form-control'}),
@@ -21,15 +21,16 @@ class ParticipantForm(ModelForm):
             'kpp',
             'ogrn',
         ]
+    name = forms.CharField(error_messages={'required': 'Пожалуйста введите ваше имя'}, widget=TextInput(attrs={'class': 'form-control'}))
 
-    def clean(self):
-        cleaned_data = super().clean()
-        errors_dict = dict(self.errors)
-        for field, field_errors in errors_dict.items():
-            for i, error in enumerate(field_errors):
-                if error == 'This field is required.':
-                    errors_dict[field][i] = f'Параметр не может быть пустым'
-        return cleaned_data
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     errors_dict = dict(self.errors)
+    #     for field, field_errors in errors_dict.items():
+    #         for i, error in enumerate(field_errors):
+    #             if error == 'This field is required.':
+    #                 errors_dict[field][i] = f'Параметр не может быть пустым'
+    #     return cleaned_data
 
     def clean_name(self):
         name = self.cleaned_data.get('name')
